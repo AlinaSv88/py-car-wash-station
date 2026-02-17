@@ -1,6 +1,3 @@
-from typing import Callable
-
-
 class Car:
     def __init__(
             self,
@@ -38,7 +35,7 @@ class CarWashStation:
 
         return total_income
 
-    def calculate_washing_price(self, car: Callable) -> float:
+    def calculate_washing_price(self, car: Car) -> float:
 
         price_per_car = round(
             car.comfort_class
@@ -51,12 +48,10 @@ class CarWashStation:
 
         return price_per_car
 
-    def wash_single_car(self, car: Callable) -> None:
+    def wash_single_car(self, car: Car) -> None:
 
         if car.clean_mark < self.clean_power:
             car.clean_mark = self.clean_power
-
-        return
 
     def rate_service(self, rate: int) -> None:
 
@@ -65,5 +60,3 @@ class CarWashStation:
             / (self.count_of_ratings + 1), 1
         )
         self.count_of_ratings += 1
-
-        return
